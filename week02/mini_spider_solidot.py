@@ -28,7 +28,7 @@ def get_position(resp, url):
         yield (titles[i], f'{url}/{links[i]}')
 
 
-def scrawl(title, url):
+def crawling_content(title, url):
     # 查找文本
     r = get_url(url)
     selector = etree.HTML(r.text)
@@ -66,7 +66,7 @@ if __name__ == '__main__':
 
     url = 'https://www.solidot.org/'
     r = get_url(url)
-    news_content = (scrawl(title, link) for title, link in get_position(r, url))
+    news_content = (crawling_content(title, link) for title, link in get_position(r, url))
     for title, news in news_content:
         save2file(title, news, file_dst)
     print('下载完毕')
