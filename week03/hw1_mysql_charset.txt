@@ -1,0 +1,22 @@
+1.modify config file /etc/my.cnf:
+[client]
+default-character-set=utf8mb4
+[mysql]
+default-character-set=utf8mb4
+[mysqld]
+character-set-client-handshake=FALSE
+character-set-server=utf8mb4
+collation-server=utf8mb4_unicode_ci
+init_connect='SET NAMES utf8mb4'
+
+2.systemctl restart mysqld
+
+3.show variables like '%character%';
+show variables like '%collation%';
+
+alt_opt:
+create database dbname;
+show create database dbname;
+
+4.add remote user:
+GRANT ALL PRIVILEGES ON db1.* TO 'test'@'%' IDENTIFIED BY 'test';
