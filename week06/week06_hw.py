@@ -91,7 +91,7 @@ class Cat(Animal):
         return self.is_fierce() is False
     
     @classmethod
-    def get_sound(cls):
+    def meow(cls):
         return cls.sound
     
     def __repr__(self) -> str:
@@ -110,7 +110,7 @@ class Dog(Animal):
         return self.is_fierce() is False
     
     @classmethod
-    def get_sound(cls):
+    def bark(cls):
         return cls.sound
 
     def __repr__(self) -> str:
@@ -131,17 +131,17 @@ if __name__ == '__main__':
     shanghaizoo = Zoo('上海浦东动物园')
     print(shanghaizoo, shanghaizoo.size)
     cat1 = Cat('大花猫', '食肉', '小', '温顺')
-    print(cat1.name, cat1.sound, cat1.get_sound(), cat1.is_fierce(), cat1.petable())
+    print(cat1.name, cat1.sound, cat1.meow(), cat1.is_fierce(), cat1.petable())
     animalfactory = AnimalFactory()
     cat2 = animalfactory.product_animal('大橘', '杂食', '中', '中性', 'C')
     shanghaizoo.add_animal(cat1)
     shanghaizoo.add_animal(cat1)
     shanghaizoo.add_animal(cat2)
-    print(cat2.name, cat2.sound, cat2.get_sound(), cat2.is_fierce(), cat2.petable())
+    print(cat2.name, cat2.sound, cat2.meow(), cat2.is_fierce(), cat2.petable())
     print(shanghaizoo.size, hasattr(shanghaizoo, 'Cat'), shanghaizoo.Cat)
     shanghaizoo.remove_animal(cat2)
     dog1 = animalfactory.product_animal('擎天柱', '食肉', '大', '凶猛', 'D')
-    print(dog1.name, dog1.sound, dog1.get_sound(), dog1.is_fierce(), dog1.petable())
-    shanghaizoo.remove_animal(dog1)
-    shanghaizoo.add_animal(111)
+    print(dog1.name, dog1.sound, dog1.bark(), dog1.is_fierce(), dog1.petable())
+    # shanghaizoo.remove_animal(dog1)
+    # shanghaizoo.add_animal(111)
 
