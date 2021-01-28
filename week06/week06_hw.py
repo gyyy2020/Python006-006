@@ -30,7 +30,8 @@ class Zoo:
     def __getattr__(self, item):
         try:
             count = sum(isinstance(i, eval(item)) for i in self.zoo)
-            self.__dict__[item] = count
+            if count:
+                self.__dict__[item] = count
         except NameError as e:
             print(e)
         
