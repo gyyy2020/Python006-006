@@ -31,7 +31,7 @@ def save_file(content=''):
     with open(file_dst, 'a', encoding='utf-8-sig', newline="", errors='replace') as f:
         csv_writer = csv.writer(f)
         csv_writer.writerow(['星级', '评论内容'])
-        # 有些评论没有星级，过滤掉，放这里可以同步过滤对应的评论内容，不需要活的index
+        # 有些评论没有星级，过滤掉，放这里可以同步过滤对应的评论内容，不需要获得index
         csv_writer.writerows((k[7], v) for k,v in content if k.startswith('allstar'))
 
 
